@@ -53,4 +53,8 @@ public class Binary {
         }
         return byte256;
     }
+
+    public String getFileName(){
+        return file.getName();
+    }
 }

@@ -37,13 +37,11 @@ public class KeyBreaker {
 
         //Get byte with highest value
         for (Map.Entry<Integer, Integer> byteChance:byteChanceMap.entrySet()) {
-            //System.out.print(byteChance.getValue()+", ");
             if(byteChance.getValue() > max){
                 max = byteChance.getValue();
                 possibleKeyByte = byteChance.getKey().byteValue();
             }
         }
-        //System.out.print("\n\n");
         return possibleKeyByte;
     }
 
@@ -59,21 +57,17 @@ public class KeyBreaker {
         }
     }
 
+    //CribDraggs xoredCiphers and byte i, gives highest output when both bytes result in non-gibberish letter (using CP1250 encoding)
     private Integer calculateChance(byte i, byte xoredCiphers){
         byte outChar = ByteXor.xor(i, xoredCiphers);
 
         int outCharScore = getCharScore(outChar);
         int inCharScore = getCharScore(i);
-        //System.out.print("i: "+i);
-        //System.out.print(", c: "+CP1250Decoder.byteToChar(i));
-        //System.out.println(", s: "+getCharScore(i));
-        //System.out.print("out: "+outChar);
-        //System.out.print(", c: "+CP1250Decoder.byteToChar(outChar));
-        //System.out.println(", s: "+getCharScore(outChar));
 
         return outCharScore + inCharScore;
     }
 
+    //Returns positive value if
     private int getCharScore(byte outChar){
         //Global big
         if(0x41<=outChar && outChar<=0x5A) { return 1; }
