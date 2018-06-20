@@ -4,6 +4,8 @@ import java.io.*;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by Michał(Krokogator) on 16.03.2018.
@@ -48,6 +50,23 @@ public class Binary {
                     byte256[i][j] = data[i*256+j];
                 } catch (ArrayIndexOutOfBoundsException e){
                     byte256[i][j] = 0;
+                }
+            }
+        }
+        return byte256;
+    }
+
+    public List<Byte>[] getBytes2(){
+        ArrayList<Byte>[] byte256 = new ArrayList[(data.length/256)+1];
+        for (int i=0; i<byte256.length;i++) {
+            byte256[i] = new ArrayList<>();
+        }
+        for(int i=0;i<=data.length/256;i++){
+            for(int j=0;j<256;j++){
+                try{
+                    byte256[i].add(data[i*256+j]);
+                } catch (ArrayIndexOutOfBoundsException e){
+                    //do nothing - shorter list at the end of ciphertext
                 }
             }
         }

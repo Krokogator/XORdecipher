@@ -27,7 +27,7 @@ public class BinaryLoader {
     private List<Binary> load(String folderPath){
         List<Binary> binaries = new ArrayList<>();
 
-        for(int i=0;i<count-1;i++){
+        for(int i=0;i<count;i++){
             try {
                 binaries.add(new Binary(folderPath+String.format("%03d",i)+"."+extension));
             } catch (Exception e) {
