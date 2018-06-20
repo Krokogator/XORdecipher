@@ -5,6 +5,8 @@ import java.util.List;
 
 /**
  * Created by Michał(Krokogator) on 16.03.2018.
+ *
+ * Loads as binaries
  */
 public class BinaryLoader {
 

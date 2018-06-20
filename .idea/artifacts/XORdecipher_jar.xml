@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="XORdecipher:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/XORdecipher_jar</output-path>
+    <root id="archive" name="XORdecipher.jar">
+      <element id="module-output" name="XORdecipher" />
+    </root>
+  </artifact>
+</component>
